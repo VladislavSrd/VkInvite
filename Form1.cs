@@ -105,7 +105,7 @@ namespace VKInvite
             var reader = new StreamReader(response.GetResponseStream());
             StringBuilder output = new StringBuilder();
             output.Append(reader.ReadToEnd());
-            richTextBox1.AppendText(output.ToString());
+           // richTextBox1.AppendText(output.ToString());
             var tmp = (JsonError)JsonConvert.DeserializeObject(output.ToString(), typeof(JsonError));
             if (tmp.error != null)
             {
@@ -132,6 +132,8 @@ namespace VKInvite
        
         private void button4_Click(object sender, EventArgs e)
         {
+            button4.Enabled = false;
+            textBox2.Enabled = false;
             if (textBox2.Text != "")
             {
                 captchaEntered = true;
@@ -140,8 +142,7 @@ namespace VKInvite
                 textBox2.Text = "";
                 InviteFriend(Captcha.lastUid,textBox1.Text);
             }
-            button4.Enabled = false;
-            textBox2.Enabled = false;
+            
             
         }
 
