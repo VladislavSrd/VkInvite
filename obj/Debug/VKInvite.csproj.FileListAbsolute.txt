@@ -1,0 +1,11 @@
+D:\vladislav\documents\Visual Studio 2013\Projects\VKInvite\VKInvite\bin\Debug\VKInvite.exe.config
+D:\vladislav\documents\Visual Studio 2013\Projects\VKInvite\VKInvite\bin\Debug\VKInvite.exe
+D:\vladislav\documents\Visual Studio 2013\Projects\VKInvite\VKInvite\bin\Debug\VKInvite.pdb
+D:\vladislav\documents\Visual Studio 2013\Projects\VKInvite\VKInvite\bin\Debug\Newtonsoft.Json.dll
+D:\vladislav\documents\Visual Studio 2013\Projects\VKInvite\VKInvite\bin\Debug\Newtonsoft.Json.xml
+D:\vladislav\documents\Visual Studio 2013\Projects\VKInvite\VKInvite\obj\Debug\VKInvite.authForm.resources
+D:\vladislav\documents\Visual Studio 2013\Projects\VKInvite\VKInvite\obj\Debug\VKInvite.Form1.resources
+D:\vladislav\documents\Visual Studio 2013\Projects\VKInvite\VKInvite\obj\Debug\VKInvite.Properties.Resources.resources
+D:\vladislav\documents\Visual Studio 2013\Projects\VKInvite\VKInvite\obj\Debug\VKInvite.csproj.GenerateResource.Cache
+D:\vladislav\documents\Visual Studio 2013\Projects\VKInvite\VKInvite\obj\Debug\VKInvite.exe
+D:\vladislav\documents\Visual Studio 2013\Projects\VKInvite\VKInvite\obj\Debug\VKInvite.pdb
