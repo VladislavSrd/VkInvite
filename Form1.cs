@@ -26,11 +26,11 @@ namespace VKInvite
             InitializeComponent();
             VkAccessToken = vkAccessToken;
             VkUserId = vkUserId;
+            Captcha = new captcha();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Captcha = new captcha();
             friends = GetFriends();
         }
 
@@ -66,6 +66,7 @@ namespace VKInvite
 
         private void button2_Click(object sender, EventArgs e)
         {
+            listView1.Items.Clear();
             if (friends.friendList.Count != 0)
             {
                 foreach (var friend in friends.friendList)
@@ -128,7 +129,7 @@ namespace VKInvite
                     }
                     if (tmp.error.error_code == 15)
                     {
-                        listView1.Items[friends.friendList.FindIndex(p => p.Id == uid)].ForeColor = Color.LavenderBlush;
+                        listView1.Items[friends.friendList.FindIndex(p => p.Id == uid)].ForeColor = Color.DarkMagenta;
                     }
                     
                 }
