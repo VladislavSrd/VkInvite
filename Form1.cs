@@ -21,7 +21,6 @@ namespace VKInvite
         private string VkUserId;
         Friends friends;
         captcha Captcha;
-        bool captchaEntered=true;
         public Form1(string vkAccessToken, string vkUserId)
         {
             InitializeComponent();
@@ -39,7 +38,7 @@ namespace VKInvite
         {
             if (listView1.SelectedItems.Count > 0)
             {
-                 InviteFriend(friends.friendList[listView1.SelectedIndices[0]].Id, textBox1.Text);
+                InviteFriend(friends.friendList[listView1.SelectedIndices[0]].Id, textBox1.Text);
             }
         }
 
@@ -83,6 +82,7 @@ namespace VKInvite
             foreach (var friend in friends.friendList)
             {
                 InviteFriend(friend.Id, textBox1.Text);
+                Thread.Sleep(200);
             }
         }
 
@@ -105,51 +105,37 @@ namespace VKInvite
             var reader = new StreamReader(response.GetResponseStream());
             StringBuilder output = new StringBuilder();
             output.Append(reader.ReadToEnd());
-           // richTextBox1.AppendText(output.ToString());
-            var tmp = (JsonError)JsonConvert.DeserializeObject(output.ToString(), typeof(JsonError));
-            if (tmp.error != null)
+            if (output.ToString() == "{\"response\":1}")
+                listView1.Items[friends.friendList.FindIndex(p => p.Id == uid)].ForeColor = Color.ForestGreen;
+            else
             {
-                if (tmp.error.error_code == 14)
+                var tmp = (JsonError)JsonConvert.DeserializeObject(output.ToString(), typeof(JsonError));
+                if (tmp.error != null)
                 {
-                    waitCaptcha = true;
-                    button4.Enabled = true;
-                    textBox2.Enabled = true;
-                    Captcha.lastUid = uid;
-                    Captcha.sid = tmp.error.captcha_sid;
-                    Captcha.imgUrl = tmp.error.captcha_img;
-                    MessageBox.Show("Введите капчу и нажмите ок, чтобы продолжить");
-                    pictureBox2.Show();
-                    pictureBox2.Load(Captcha.imgUrl);
-                }
-                if (tmp.error.error_code == 15)
-                {
-                    MessageBox.Show("Вы не можете пригласить данного пользователя, так как он запретил эту возможность.");
+                    if (tmp.error.error_code == 14)
+                    {
+                        waitCaptcha = true;
+                        Captcha.lastUid = uid;
+                        Captcha.sid = tmp.error.captcha_sid;
+                        Captcha.imgUrl = tmp.error.captcha_img;
+                        captchaForm captchaForm = new captchaForm(Captcha);
+                        captchaForm.ShowDialog();
+                        if (captchaForm.DialogResult == DialogResult.OK)
+                        {
+                            Captcha.key = captchaForm.Captcha.key;
+                            InviteFriend(Captcha.lastUid, textBox1.Text);
+                        }
+                    }
+                    if (tmp.error.error_code == 15)
+                    {
+                        listView1.Items[friends.friendList.FindIndex(p => p.Id == uid)].ForeColor = Color.LavenderBlush;
+                    }
+                    
                 }
             }
             response.Close();
         }
 
-       
-        private void button4_Click(object sender, EventArgs e)
-        {
-            button4.Enabled = false;
-            textBox2.Enabled = false;
-            if (textBox2.Text != "")
-            {
-                captchaEntered = true;
-                Captcha.key = textBox2.Text;
-                pictureBox2.Hide();
-                textBox2.Text = "";
-                InviteFriend(Captcha.lastUid,textBox1.Text);
-            }
-            
-            
-        }
-
-        private void backgroundInviter_DoWork(object sender, DoWorkEventArgs e)
-        {
-            
-        }
     }
 }
 

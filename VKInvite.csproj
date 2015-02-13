@@ -56,6 +56,12 @@
       <DependentUpon>authForm.cs</DependentUpon>
     </Compile>
     <Compile Include="captcha.cs" />
+    <Compile Include="captchaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="captchaForm.Designer.cs">
+      <DependentUpon>captchaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="authForm.resx">
       <DependentUpon>authForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="captchaForm.resx">
+      <DependentUpon>captchaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

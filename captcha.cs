@@ -11,6 +11,15 @@ namespace VKInvite
         public string sid { set; get; }
         public string imgUrl { set; get; }
         public string key { set; get; }
-        public int lastUid { set; get; } 
+        public int lastUid { set; get; }
+
+        public void Clear()
+        {
+            sid = "";
+            imgUrl = "";
+            key = "";
+            lastUid = 0;
+        }
     }
+    
 }

@@ -9,4 +9,5 @@ D:\vladislav\documents\Visual Studio 2013\Projects\VKInvite\VKInvite\obj\Release
 D:\vladislav\documents\Visual Studio 2013\Projects\VKInvite\VKInvite\obj\Release\VKInvite.csproj.GenerateResource.Cache
 D:\vladislav\documents\Visual Studio 2013\Projects\VKInvite\VKInvite\obj\Release\VKInvite.exe
 D:\vladislav\documents\Visual Studio 2013\Projects\VKInvite\VKInvite\obj\Release\VKInvite.pdb
+D:\vladislav\documents\Visual Studio 2013\Projects\VKInvite\VKInvite\obj\Release\VKInvite.captchaForm.resources
 D:\vladislav\documents\Visual Studio 2013\Projects\VKInvite\VKInvite\obj\Release\VKInvite.csprojResolveAssemblyReference.cache
